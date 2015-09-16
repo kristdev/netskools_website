@@ -1,0 +1,11 @@
+.menucontainer {
+    background-color: #ffffff;
+}
+
+.menucontainer .nav.navbar-nav li>a {
+    color: #67c4f1;
+}
+
+.menucontainer .nav.navbar-nav li:hover{
+    background-color: #0241b4;
+}
