@@ -1,26 +1,46 @@
+/* line 2, C:/wamp/www/netskools_website/assets/css/myown.scss */
 .menucontainer {
-    background-color: #ffffff;
-}
+  background-color: #ffffff;
+  border-top: #67c4f1 solid 1px; }
 
-.menucontainer .nav.navbar-nav li>a {
-    color: #67c4f1;
-}
+/* line 6, C:/wamp/www/netskools_website/assets/css/myown.scss */
+.navbar-base.affix {
+  background-color: white; }
 
-.menucontainer .nav.navbar-nav li:hover{
-    background-color: #0241b4;
-}
+/* line 9, C:/wamp/www/netskools_website/assets/css/myown.scss */
+.menucontainer .nav.navbar-nav li > a {
+  color: #67c4f1; }
 
-.c-blue1{
-    color: #67c4f1;
-}
+/* line 12, C:/wamp/www/netskools_website/assets/css/myown.scss */
+.menucontainer .nav.navbar-nav li:hover {
+  background-color: #0241b4; }
 
+/* line 15, C:/wamp/www/netskools_website/assets/css/myown.scss */
+.c-blue1 {
+  color: #67c4f1; }
+
+/* line 18, C:/wamp/www/netskools_website/assets/css/myown.scss */
 .bordered-blue1 {
-    border: solid 1px #67c4f1;
-    height:60px;
-    font-size:50px;
-    line-height: 60px;
-}
+  border: solid 1px #67c4f1;
+  height: 60px;
+  font-size: 50px;
+  line-height: 60px; }
 
-.navbar-base.affix{
-    background-color: white;
-}
+/* line 24, C:/wamp/www/netskools_website/assets/css/myown.scss */
+.netskools-welcome {
+  font-size: 48px;
+  font-family: "Open Sans";
+  color: white;
+  text-align: center;
+  text-shadow: 0px 1px 1px black; }
+
+/* line 31, C:/wamp/www/netskools_website/assets/css/myown.scss */
+.slogan_welcome {
+  font-size: 30px;
+  font-family: "Open Sans";
+  color: white;
+  line-height: 1.576;
+  text-align: center;
+  text-shadow: 0px 1px 1px black; }
+
+/*# sourceMappingURL=myown.css.map */

@@ -1,0 +1,38 @@
+$c-blue1: #67c4f1;
+.menucontainer {
+    background-color: #ffffff;
+    border-top: $c-blue1 solid 1px;
+}
+.navbar-base.affix{
+    background-color: white;
+}
+.menucontainer .nav.navbar-nav li>a {
+    color: $c-blue1;
+}
+.menucontainer .nav.navbar-nav li:hover{
+    background-color: #0241b4;
+}
+.c-blue1{
+    color: $c-blue1;
+}
+.bordered-blue1 {
+    border: solid 1px $c-blue1;
+    height:60px;
+    font-size:50px;
+    line-height: 60px;
+}
+.netskools-welcome{
+  font-size: 48px;
+  font-family: "Open Sans";
+  color: rgb( 255, 255, 255 );
+  text-align: center;
+  text-shadow: 0px 1px 1px rgb( 0, 0, 0 );
+}
+.slogan_welcome {
+  font-size: 30px;
+  font-family: "Open Sans";
+  color: rgb( 255, 255, 255 );
+  line-height: 1.576;
+  text-align: center;
+  text-shadow: 0px 1px 1px rgb( 0, 0, 0 );
+}
