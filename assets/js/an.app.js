@@ -17,7 +17,7 @@
         };
     }])
     
-    .directive('footer', [function () {
+    .directive('thefooter', [function () {
         return {
             restrict: 'E',
             templateUrl: 'assets/ngapp/footer.html'
