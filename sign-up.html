@@ -22,7 +22,8 @@
         <!-- Assets -->
         <link rel="stylesheet" href="assets/plugins/owl-carousel/owl.carousel.css">
         <link rel="stylesheet" href="assets/plugins/owl-carousel/owl.theme.css">
-        <link rel="stylesheet" href="assets/plugins/sky-forms/css/sky-forms.css">    
+        <link rel="stylesheet" href="assets/plugins/sky-forms/css/sky-forms.css">   
+        <link rel="stylesheet" href="assets/plugins/animate/animate.css"> 
         <!--[if lt IE 9]>
 <link rel="stylesheet" href="assets/sky-forms/css/sky-forms-ie8.css">
 <![endif]-->
@@ -33,19 +34,48 @@
 
         <!-- Page scripts -->
 
+        <style>
+            .alert {
+                padding: 15px;
+                margin-bottom: 20px;
+                border: 1px solid #eed3d7;
+                border-radius: 4px;
+                position: absolute;
+                bottom: 0px;
+                right: 21px;
+                /* Each alert has its own width */
+                float: right; 
+                clear: right;
+            }
+
+            .alert-red {
+                color: white;
+                background-color: #DA4453;
+            }
+            .alert-green {
+                color: white;
+                background-color: #37BC9B;
+            }
+            .alert-blue {
+                color: white;
+                background-color: #4A89DC;
+            }
+            .alert-yellow {
+                color: white;
+                background-color: #F6BB42;
+            }
+            .alert-orange {
+                color:white;
+                background-color: #E9573F;
+            }
+        </style>
+
     </head>
-    <body>
+    <body ng-controller="signupController">
         <!-- MODALS -->
 
         <!-- MOBILE MENU - Option 2 -->
         <section id="navMobile" class="aside-menu left">
-            <form class="form-horizontal form-search">
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <button id="btnHideMobileNav" class="btn btn-close" type="button" title="Hide sidebar"><i class="fa fa-times"></i></button>
-                    </span>
-                </div>
-            </form>
             <div id="dl-menu" class="dl-menuwrapper">
                 <ul class="dl-menu"></ul>
             </div>
@@ -63,11 +93,8 @@
                                 <button type="button" class="navbar-toggle navbar-toggle-aside-menu">
                                     <i class="fa fa-outdent icon-custom"></i>
                                 </button>
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                    <i class="fa fa-bars icon-custom"></i>
-                                </button>
 
-                                <a class="navbar-brand" href="index-2.html" title="Boomerang | One template. Infinite solutions">
+                                <a class="navbar-brand" href="index.html" title="netskools">
                                     <img src="assets/images/logo.png" alt="Netskools">
                                 </a>
                             </div>
@@ -75,7 +102,8 @@
                             <!--/.nav-collapse -->
                         </div>
                     </div>
-                </header>        </div>
+                </header>        
+            </div>
 
             <!-- Optional header components (ex: slider) -->
 
@@ -88,7 +116,8 @@
                         </div>
                         <div class="col-md-6">
                             <ol class="breadcrumb">
-                                <li><a href="#">Home</a></li>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="nous-contacter.html">Nous Contacter</a></li>
                                 <li class="active">Sign up</li>
                             </ol>
                         </div>
@@ -106,124 +135,174 @@
                                         <h2>Vous êtes responsable d'une école ou vous désirez faire des études statistiques avec les donées de notre observatoire?</h2>
                                     </div>
                                     <div class="form-body">
-                                        <form action="#" id="frmRegister" class="sky-form">                                    
-                                            <fieldset class="no-padding">
+                                        <form role="form" class="sky-form" ng-submit="addData()" data-toggle="validator">                                    
+                                            <div id="ohsnap"></div>
+                                            <fieldset>   
                                                 <section>
                                                     <div class="row">
-                                                        <section class="col-xs-6">
-                                                            <label class="label">Nom</label>
+                                                        <section class="col-xs-4 form-group">
+                                                            <label class="label control-label" for="nom">Nom</label>
                                                             <label class="input">
                                                                 <i class="icon-append fa fa-user"></i>
-                                                                <input type="text" name="fname" placeholder="">
+                                                                <input type="text" class="form-control" ng-model="nom" id="nom" name="nom" placeholder="Votre Nom" required data-error="Entrez un nom valide" pattern="[A-Za-z ]+$">
                                                             </label>
+                                                            <span class="help-block with-errors"></span>
                                                         </section>
-                                                        <section class="col-xs-6">
-                                                            <label class="label">Prénom</label>
+                                                        <section class="col-xs-4 form-group">
+                                                            <label class="label" for="prenom">Prénom</label>
                                                             <label class="input">
                                                                 <i class="icon-append fa fa-user"></i>
-                                                                <input type="text" name="lname" placeholder="">
+                                                                <input type="text" class="form-control" ng-model="prenom" id="prenom" name="prenom" placeholder="Votre prénom" required data-error="Entrez un nom valide" pattern="[A-Za-z ]+$">
                                                             </label>
+                                                            <span class="help-block with-errors"></span>
+                                                        </section>
+                                                        <section class="col-xs-4 form-group">
+                                                            <label class="label" for="email">Email</label>
+                                                            <label class="input">
+                                                                <i class="icon-append fa fa-envelope"></i>
+                                                                <input type="email" class="form-control" ng-model="email" id="email" name="email" placeholder="votreemail@domaine.com" required>
+                                                            </label>
+                                                            <span class="help-block with-errors"></span>
                                                         </section>
                                                     </div> 
                                                     <div class="row">
-                                                        <section class="col-xs-6">
-                                                            <label class="label">Hôte</label>
+                                                        <section class="col-xs-6 form-group">
+                                                            <label class="label" for="type_hote">Type Hôte</label>
                                                             <label class="select">
                                                                 <i class="icon-append fa fa-building"></i>
-                                                                <select name="hote">
-                                                                    <option value="">Ecole primaire</option>
-                                                                    <option value="">Ecole secondaire</option>
-                                                                    <option value="">Ecole supérieure</option>
-                                                                    <option value="">Ecole de formation</option>
-                                                                    <option value="">Institut de recherche</option>
-                                                                    <option value="">Organe d'Etat</option>
+                                                                <select id="type_hote" class="form-control" name="type_hote" ng-model="type_hote" required>
+                                                                    <option value="0">Ecole primaire</option>
+                                                                    <option value="1">Ecole secondaire</option>
+                                                                    <option value="2">Ecole supérieure</option>
+                                                                    <option value="3">Ecole de formation</option>
+                                                                    <option value="4">Institut de recherche</option>
+                                                                    <option value="5">Organe d'Etat</option>
                                                                 </select>
                                                             </label>
+                                                            <span class="help-block with-errors"></span>
                                                         </section>
-                                                        <section class="col-xs-6">
-                                                            <label class="label">Téléphone</label>
+                                                        <section class="col-xs-6 form-group">
+                                                            <label class="label" for="nom_hote">Nom de l'hôte</label>
                                                             <label class="input">
-                                                                <i class="icon-append fa fa-phone"></i>
-                                                                <input type="tel" name="phone" placeholder="">
+                                                                <i class="icon-append fa fa-institution"></i>
+                                                                <input type="text" class="form-control" ng-model="nom_hote" id="nom_hote" name="nom_hote" placeholder="Lycée... Collège... " required>
                                                             </label>
+                                                            <span class="help-block with-errors"></span>
                                                         </section>
                                                     </div>
                                                     <div class="row">
                                                         <section class="col-xs-12">
-                                                            <div class="thumbnail">
+                                                            <div class="thumbnail animated" ng-show="type_hote==0">
                                                                 <h4 class="page-header">Ecole primaire</h4>
                                                                 <p class="">
-                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, sunt, quo! Magnam molestias, enim autem non, provident                                                      possimus tempora eum consequuntur voluptates est tempore libero excepturi fugit tenetur eveniet cum.
+                                                                    Vous dirigez une école primaire, vous souhaitez équiper votre école d'un outil révoulutionnaire pour la gestion des classes de notes, et la suivie quotidienne de toutes les activités, Netskools est fait pour vous, remplissez ce formulaire afin de souscrire à une demande d'ouverture de compte. Votre demande sera évaluée et un de nos conseillers entrera en contact avec vous.
+                                                                </p>
+                                                            </div>
+
+                                                            <div class="thumbnail animated" ng-show="type_hote==1">
+                                                                <h4 class="page-header">Ecole secondaire</h4>
+                                                                <p class="">
+                                                                    Vous dirigez un lycée ou un collège, vous souhaitez équiper votre école d'un outil révoulutionnaire pour la gestion des classes de notes, et la suivie quotidienne de toutes les activités, Netskools est fait pour vous, remplissez ce formulaire afin de souscrire à une demande d'ouverture de compte. Votre demande sera évaluée et un de nos conseillers entrera en contact avec vous.
+                                                                </p>
+                                                            </div>
+
+                                                            <div class="thumbnail animated" ng-show="type_hote==2">
+                                                                <h4 class="page-header">Ecole supérieure</h4>
+                                                                <p class="">
+                                                                    Vous dirigez une université d'enseignement supérieur, vous souhaitez équiper votre école d'un outil révoulutionnaire pour la gestion des classes de notes, et la suivie quotidienne de toutes les activités, Netskools est fait pour vous, remplissez ce formulaire afin de souscrire à une demande d'ouverture de compte. Votre demande sera évaluée et un de nos conseillers entrera en contact avec vous.
+                                                                </p>
+                                                            </div>
+
+                                                            <div class="thumbnail animated" ng-show="type_hote==3">
+                                                                <h4 class="page-header">Ecole de formation</h4>
+                                                                <p class="">
+                                                                    Vous dirigez une école de formation, vous souhaitez équiper votre école d'un outil révoulutionnaire pour la gestion des classes de notes, et la suivie quotidienne de toutes les activités, Netskools est fait pour vous, remplissez ce formulaire afin de souscrire à une demande d'ouverture de compte. Votre demande sera évaluée et un de nos conseillers entrera en contact avec vous.
+                                                                </p>
+                                                            </div>
+
+                                                            <div class="thumbnail animated" ng-show="type_hote==4">
+                                                                <h4 class="page-header">Institut de recherche ou statistique</h4>
+                                                                <p class="">
+                                                                    Vous dirigez une institut de recherche ou de statistiques, vous souhaitez disposer d'un outil de collecte de données fiable sur un système éducatif, Netskools est fait pour vous, remplissez ce formulaire afin de souscrire à une demande d'ouverture de compte. Votre demande sera évaluée et un de nos conseillers entrera en contact avec vous.
+                                                                </p>
+                                                            </div>
+
+                                                            <div class="thumbnail animated" ng-show="type_hote==5">
+                                                                <h4 class="page-header">Organisme</h4>
+                                                                <p class="">
+                                                                    Vous dirigez une institut de recherche ou de statistiques, vous souhaitez disposer d'un outil de collecte de données fiable sur un système éducatif, Netskools est fait pour vous, remplissez ce formulaire afin de souscrire à une demande d'ouverture de compte. Votre demande sera évaluée et un de nos conseillers entrera en contact avec vous.
                                                                 </p>
                                                             </div>
                                                         </section>
                                                     </div>
-                                                </section>
-                                            </fieldset>  
+                                                </section>  
+                                            </fieldset>
 
                                             <fieldset>
                                                 <div class="row">
-                                                    <section class="col-xs-5">
+                                                    <section class="col-xs-5 form-group">
                                                         <label class="select">
-                                                            <select name="country">
-                                                                <option value="0" selected="" disabled="">Pays de résidence</option>
-                                                                <option value="244">Aaland Islands</option>
-                                                                <option value="1">Afghanistan</option>
-                                                                <option value="2">Albania</option>
-                                                                <option value="3">Algeria</option>
-                                                                <option value="4">American Samoa</option>
-                                                                <option value="5">Andorra</option>
-                                                                <option value="6">Angola</option>
-                                                                <option value="7">Anguilla</option>
-                                                                <option value="8">Antarctica</option>
-                                                                <option value="9">Antigua and Barbuda</option>
-                                                                <option value="10">Argentina</option>
-                                                            </select>
+                                                            <country-select data-ng-model="selectedCountry" required class="form-control"></country-select>
                                                             <i></i>
                                                         </label>
+                                                        <span class="help-block with-errors"></span>
                                                     </section>
 
-                                                    <section class="col-xs-4">
+                                                    <section class="col-xs-4 form-group">
                                                         <label class="input">
-                                                            <input type="text" name="city" placeholder="Etat/Région">
+                                                            <input type="text" class="form-control" ng-model="etat_region" id="etat_region" name="etat_region" placeholder="Etat/Région" required>
                                                         </label>
+                                                        <span class="help-block with-errors"></span>
                                                     </section>
 
-                                                    <section class="col-xs-3">
+                                                    <section class="col-xs-3 form-group">
                                                         <label class="input">
-                                                            <input type="text" name="code" placeholder="Ville">
+                                                            <input type="text" class="form-control" ng-model="ville" id="ville" name="ville" placeholder="Ville" required>
                                                         </label>
+                                                        <span class="help-block with-errors"></span>
                                                     </section>
                                                 </div>
 
-                                                <section>
-                                                    <label for="file" class="input">
-                                                        <input type="text" name="address" placeholder="Addresse">
-                                                    </label>
-                                                </section>
+                                                <div class="row">
+                                                    <section class="col-xs-6 form-group">
+                                                        <label for="file" class="input">
+                                                            <input type="text" class="form-control" ng-model="adresse" id="adresse" name="adresse" placeholder="Addresse" required>
+                                                        </label>
+                                                        <span class="help-block with-errors"></span>
+                                                    </section>
+                                                    <section class="col-xs-6 form-group">
+                                                        <label for="file" class="input">
+                                                            <input type="tel" class="form-control" ng-model="telephone" id="telephone" name="telephone" placeholder="telephone" required>
+                                                        </label>
+                                                        <span class="help-block with-errors"></span>
+                                                    </section>
+                                                    <div class="clearfix"></div>
+                                                </div>
 
-                                                <section>
+                                                <section class="form-group">
                                                     <label class="textarea">
-                                                        <textarea rows="3" name="info" placeholder="Infos supplémentaires"></textarea>
+                                                        <textarea rows="3" class="form-control" ng-model="info" id="info" name="info" placeholder="Infos supplémentaires" data-toggle="popover" data-title="Infos supplémentaires" data-content="Décrivez ici quelles sont vos mootivations d'utilisation du logiciel, comment avez vous connu le logiciel, marquez la taille de votre établissement en terme d'effectifs d'étudiants et d'enseignants." required></textarea>
                                                     </label>
+                                                    <span class="help-block with-errors"></span>
                                                 </section>
                                                 <section>
                                                     <div class="row">
                                                         <div class="col-md-8">
                                                             <label class="checkbox">
-                                                                <input type="checkbox" name="subscription" id="subscription">
-                                                                <i></i> I accept the <a href="#">terms and conditions</a> of this website.
+                                                                <input type="checkbox" ng-model="subscription" name="subscription" id="subscription" ng-click="enable_submit()">
+                                                                <i></i> Je valide <a href="#">les conditions d'utilisation</a> du logiciel.
                                                             </label>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <button class="btn btn-alt btn-icon btn-icon-right btn-icon-go pull-right" type="submit">
+                                                            <button type="submit" class="btn btn-alt btn-icon btn-icon-right btn-icon-go pull-right" ng-disabled="state_activation==false">
                                                                 <span>Register now</span>
                                                             </button>
                                                         </div>
                                                         </section>
-                                                    </fieldset>
-                                                </form>    
-                                            </div>
+                                            </fieldset>
+
+                                            </form>    
+                                        </div>
                                         <div class="form-footer">
                                             <p>Déjà inscrit? <a href="#">Cliquez ici pour vous connecter.</a></p>
                                         </div>
@@ -232,7 +311,7 @@
                             </div>
                         </div>
                     </div>
-                    </section>
+                </section>
 
                 <!-- FOOTER -->
                 <thefooter></thefooter>
@@ -241,42 +320,23 @@
             <!-- Essentials -->
             <script src="assets/js/modernizr.custom.js"></script>
             <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-            <script src="assets/js/jquery.mousewheel-3.0.6.pack.js"></script>
-            <script src="assets/js/jquery.easing.js"></script>
-            <script src="assets/js/jquery.metadata.js"></script>
-            <script src="assets/js/jquery.hoverup.js"></script>
-            <script src="assets/js/jquery.hoverdir.js"></script>
-            <script src="assets/js/jquery.stellar.js"></script>
 
             <!-- Boomerang mobile nav - Optional  -->
             <script src="assets/plugins/responsive-mobile-nav/js/jquery.dlmenu.js"></script>
             <script src="assets/plugins/responsive-mobile-nav/js/jquery.dlmenu.autofill.js"></script>
 
-            <!-- Forms -->
-            <script src="assets/plugins/ui-kit/js/jquery.powerful-placeholder.min.js"></script> 
-            <script src="assets/plugins/ui-kit/js/cusel.min.js"></script>
-            <script src="assets/plugins/sky-forms/js/jquery.form.min.js"></script>
-            <script src="assets/plugins/sky-forms/js/jquery.validate.min.js"></script>
-            <script src="assets/plugins/sky-forms/js/jquery.maskedinput.min.js"></script>
-            <script src="assets/plugins/sky-forms/js/jquery.modal.js"></script>
-
             <!-- Assets -->
             <script src="assets/plugins/hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
             <script src="assets/plugins/page-scroller/jquery.ui.totop.min.js"></script>
-            <script src="assets/plugins/mixitup/jquery.mixitup.js"></script>
-            <script src="assetsplugins//mixitup/jquery.mixitup.init.js"></script>
-            <script src="assets/plugins/fancybox/jquery.fancybox.pack8cbb.js?v=2.1.5"></script>
-            <script src="assets/plugins/waypoints/waypoints.min.js"></script>
-            <script src="assets/plugins/milestone-counter/jquery.countTo.js"></script>
-            <script src="assets/plugins/easy-pie-chart/js/jquery.easypiechart.js"></script>
-            <script src="assets/plugins/social-buttons/js/rrssb.min.js"></script>
-            <script src="assets/plugins/nouislider/js/jquery.nouislider.min.js"></script>
-            <script src="assets/plugins/owl-carousel/owl.carousel.js"></script>
             <script src="assets/plugins/bootstrap/js/tooltip.js"></script>
             <script src="assets/plugins/bootstrap/js/popover.js"></script>
+<!--            <script src="assets/plugins/bootstrap-validator/validator.js"></script>-->
+            <script src="assets/plugins/pouchdb/pouchdb-4.0.0.min.js"></script>
+            <script src="assets/plugins/ohsnap/ohsnap.js"></script>
 
             <!--Ng Scripts-->
             <script src="assets/plugins/angular/angular.min.js"></script>
+            <script src="assets/plugins/angular-country-select/angular.country-select.js"></script>
             <script src="assets/js/an.app.js"></script>
             <!--Fin Ng Scripts-->
 
@@ -289,12 +349,9 @@
 <script src="js/respond.min.js"></script>
 <![endif]-->
 
-            <!-- Temp -- You can remove this once you started to work on your project -->
-            <script src="assets/js/jquery.cookie.js"></script>
-            <script src="assets/js/wp.switcher.js"></script>
-            <script type="text/javascript" src="assets/js/wp.ga.js"></script>
-
-
+            <script>
+                $('.animated').addClass('animated fadeInLeft');
+                $('textarea').popover();
+            </script>
             </body>
-
         </html>

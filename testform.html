@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body ng-controller="signupController">
+    <form role="form" class="sky-form" ng-submit="addData()">                                    
+
+                                            <section>
+                                                <div class="row">
+                                                    <section class="col-xs-4">
+                                                        <label class="label">Nom</label>
+                                                        <label class="input">
+                                                            <i class="icon-append fa fa-user"></i>
+                                                            <input type="text" ng-model="nom" id="nom" name="nom" placeholder="Votre Nom" data-validate="required,alphadash,min(2)">
+                                                        </label>
+                                                    </section>
+                                                    <section class="col-xs-4">
+                                                        <label class="label">Prénom</label>
+                                                        <label class="input">
+                                                            <i class="icon-append fa fa-user"></i>
+                                                            <input type="text" ng-model="prenom" id="prenom" name="prenom" placeholder="Votre prénom" data-validate="required,alphadash,min(2)">
+                                                        </label>
+                                                    </section>
+                                                    <section class="col-xs-4">
+                                                        <label class="label">Email</label>
+                                                        <label class="input">
+                                                            <i class="icon-append fa fa-envelope"></i>
+                                                            <input type="email" ng-model="email" iid="email" name="email" placeholder="votreemail@domaine.com" data-validate="email,required">
+                                                        </label>
+                                                    </section>
+                                                </div> 
+                                                <div class="row">
+                                                    <section class="col-xs-6">
+                                                        <label class="label">Type Hôte</label>
+                                                        <label class="select">
+                                                            <i class="icon-append fa fa-building"></i>
+                                                            <select id="type_hote" name="type_hote" ng-model="type_hote" data-validate="required">
+                                                                <option value="0">Ecole primaire</option>
+                                                                <option value="1">Ecole secondaire</option>
+                                                                <option value="2">Ecole supérieure</option>
+                                                                <option value="3">Ecole de formation</option>
+                                                                <option value="4">Institut de recherche</option>
+                                                                <option value="5">Organe d'Etat</option>
+                                                            </select>
+                                                        </label>
+                                                    </section>
+                                                    <section class="col-xs-6">
+                                                        <label class="label">Nom de l'hôte</label>
+                                                        <label class="input">
+                                                            <i class="icon-append fa fa-institution"></i>
+                                                            <input type="text" ng-model="nom_hote" id="nom_hote" name="nom_hote" placeholder="Lycée... Collège... " data-validate="required,alphadash,min(2)">
+                                                        </label>
+                                                    </section>
+                                                </div>
+                                                <div class="row">
+                                                    <section class="col-xs-12">
+                                                        <div class="thumbnail animated" ng-show="type_hote==0">
+                                                            <h4 class="page-header">Ecole primaire</h4>
+                                                            <p class="">
+                                                                Vous dirigez une école primaire, vous souhaitez équiper votre école d'un outil révoulutionnaire pour la gestion des classes de notes, et la suivie quotidienne de toutes les activités, Netskools est fait pour vous, remplissez ce formulaire afin de souscrire à une demande d'ouverture de compte. Votre demande sera évaluée et un de nos conseillers entrera en contact avec vous.
+                                                            </p>
+                                                        </div>
+
+                                                        <div class="thumbnail animated" ng-show="type_hote==1">
+                                                            <h4 class="page-header">Ecole secondaire</h4>
+                                                            <p class="">
+                                                                Vous dirigez un lycée ou un collège, vous souhaitez équiper votre école d'un outil révoulutionnaire pour la gestion des classes de notes, et la suivie quotidienne de toutes les activités, Netskools est fait pour vous, remplissez ce formulaire afin de souscrire à une demande d'ouverture de compte. Votre demande sera évaluée et un de nos conseillers entrera en contact avec vous.
+                                                            </p>
+                                                        </div>
+
+                                                        <div class="thumbnail animated" ng-show="type_hote==2">
+                                                            <h4 class="page-header">Ecole supérieure</h4>
+                                                            <p class="">
+                                                                Vous dirigez une université d'enseignement supérieur, vous souhaitez équiper votre école d'un outil révoulutionnaire pour la gestion des classes de notes, et la suivie quotidienne de toutes les activités, Netskools est fait pour vous, remplissez ce formulaire afin de souscrire à une demande d'ouverture de compte. Votre demande sera évaluée et un de nos conseillers entrera en contact avec vous.
+                                                            </p>
+                                                        </div>
+
+                                                        <div class="thumbnail animated" ng-show="type_hote==3">
+                                                            <h4 class="page-header">Ecole de formation</h4>
+                                                            <p class="">
+                                                                Vous dirigez une école de formation, vous souhaitez équiper votre école d'un outil révoulutionnaire pour la gestion des classes de notes, et la suivie quotidienne de toutes les activités, Netskools est fait pour vous, remplissez ce formulaire afin de souscrire à une demande d'ouverture de compte. Votre demande sera évaluée et un de nos conseillers entrera en contact avec vous.
+                                                            </p>
+                                                        </div>
+
+                                                        <div class="thumbnail animated" ng-show="type_hote==4">
+                                                            <h4 class="page-header">Institut de recherche ou statistique</h4>
+                                                            <p class="">
+                                                                Vous dirigez une institut de recherche ou de statistiques, vous souhaitez disposer d'un outil de collecte de données fiable sur un système éducatif, Netskools est fait pour vous, remplissez ce formulaire afin de souscrire à une demande d'ouverture de compte. Votre demande sera évaluée et un de nos conseillers entrera en contact avec vous.
+                                                            </p>
+                                                        </div>
+
+                                                        <div class="thumbnail animated" ng-show="type_hote==5">
+                                                            <h4 class="page-header">Organisme</h4>
+                                                            <p class="">
+                                                                Vous dirigez une institut de recherche ou de statistiques, vous souhaitez disposer d'un outil de collecte de données fiable sur un système éducatif, Netskools est fait pour vous, remplissez ce formulaire afin de souscrire à une demande d'ouverture de compte. Votre demande sera évaluée et un de nos conseillers entrera en contact avec vous.
+                                                            </p>
+                                                        </div>
+                                                    </section>
+                                                </div>
+                                            </section>  
+
+
+                                            <div class="row">
+                                                <section class="col-xs-5">
+                                                    <label class="select">
+                                                        <country-select data-ng-model="selectedCountry" data-validate="required"></country-select>
+                                                        <i></i>
+                                                    </label>
+                                                </section>
+
+                                                <section class="col-xs-4">
+                                                    <label class="input">
+                                                        <input type="text" ng-model="etat_region" id="etat_region" name="etat_region" placeholder="Etat/Région" data-validate="required">
+                                                    </label>
+                                                </section>
+
+                                                <section class="col-xs-3">
+                                                    <label class="input">
+                                                        <input type="text" ng-model="ville" id="ville" name="ville" placeholder="Ville" data-validate="required">
+                                                    </label>
+                                                </section>
+                                            </div>
+
+                                            <div class="row">
+                                                <section class="col-xs-6">
+                                                    <label for="file" class="input">
+                                                        <input type="text" ng-model="adresse" id="adresse" name="adresse" placeholder="Addresse" data-validate="required">
+                                                    </label>
+                                                </section>
+                                                <section class="col-xs-6">
+                                                    <label for="file" class="input">
+                                                        <input type="telephone" ng-model="telephone" id="telephone" name="telephone" placeholder="telephone" data-validate="required,phone">
+                                                    </label>
+                                                </section>
+                                                <div class="clearfix"></div>
+                                            </div>
+
+                                            <section>
+                                                <label class="textarea">
+                                                    <textarea rows="3" ng-model="info" id="info" name="info" placeholder="Infos supplémentaires" data-toggle="popover" data-title="Infos supplémentaires" data-content="Décrivez ici quelles sont vos mootivations d'utilisation du logiciel, comment avez vous connu le logiciel, marquez la taille de votre établissement en terme d'effectifs d'étudiants et d'enseignants."></textarea>
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <label class="checkbox">
+                                                            <input type="checkbox" ng-model="subscription" name="subscription" id="subscription" ng-click="enable_submit()">
+                                                            <i></i> Je valide <a href="#">les conditions d'utilisation</a> du logiciel.
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <button class="btn btn-alt btn-icon btn-icon-right btn-icon-go pull-right" ng-disabled="state_activation==false">
+                                                            <span>Register now</span>
+                                                        </button>
+                                                    </div>
+                                                    </section>
+
+                                                </form>    
+    
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/plugins/ohsnap/ohsnap.js"></script>
+    <script src="assets/plugins/pouchdb/pouchdb-4.0.0.min.js"></script>
+    <script src="assets/plugins/angular/angular.min.js"></script>
+    <script src="assets/plugins/angular-country-select/angular.country-select.js"></script>
+    <script src="assets/js/an.app.js"></script>
+</body>
+</html>

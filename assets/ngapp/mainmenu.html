@@ -1,16 +1,13 @@
 <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
-        <li class="">
+        <li ng-class="{active: activepage=='home'}">
             <a href="index.html">Home</a>
         </li>
-        <li class="">
+        <li ng-class="{active: activepage=='a-propos'}">
             <a href="#">A propos</a>
         </li>
         <li class="">
             <a href="#">Fonctionnalités</a>
-        </li>
-        <li>
-            <a href="#">Plans</a>
         </li>
         <li class="">
             <a href="#">FAQ</a>
@@ -18,7 +15,7 @@
         <li class="">
             <a href="#">Blog</a>
         </li>
-        <li class="">
+        <li ng-class="{active: activepage=='nous-contacter'}">
             <a href="#">Nous contacter</a>
         </li>
     </ul>      
