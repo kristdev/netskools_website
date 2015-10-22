@@ -171,7 +171,7 @@
                                                             <label class="select">
                                                                 <i class="icon-append fa fa-building"></i>
                                                                 <select id="type_hote" class="form-control" name="type_hote" ng-model="type_hote" required>
-                                                                    <option value="0">Ecole primaire</option>
+                                                                    <option value="0" ng-selected="selectdefault==0">Ecole primaire</option>
                                                                     <option value="1">Ecole secondaire</option>
                                                                     <option value="2">Ecole supérieure</option>
                                                                     <option value="3">Ecole de formation</option>
@@ -320,14 +320,39 @@
             <!-- Essentials -->
             <script src="assets/js/modernizr.custom.js"></script>
             <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+            <script src="assets/js/jquery.mousewheel-3.0.6.pack.js"></script>
+            <script src="assets/js/jquery.easing.js"></script>
+            <script src="assets/js/jquery.metadata.js"></script>
+            <script src="assets/js/jquery.hoverup.js"></script>
+            <script src="assets/js/jquery.hoverdir.js"></script>
+            <script src="assets/js/jquery.stellar.js"></script>
 
             <!-- Boomerang mobile nav - Optional  -->
             <script src="assets/plugins/responsive-mobile-nav/js/jquery.dlmenu.js"></script>
             <script src="assets/plugins/responsive-mobile-nav/js/jquery.dlmenu.autofill.js"></script>
+            
+            <!-- Forms -->
+            <script src="assets/plugins/ui-kit/js/jquery.powerful-placeholder.min.js"></script> 
+            <script src="assets/plugins/ui-kit/js/cusel.min.js"></script>
+            <script src="assets/plugins/sky-forms/js/jquery.form.min.js"></script>
+            <script src="assets/plugins/sky-forms/js/jquery.validate.min.js"></script>
+            <script src="assets/plugins/sky-forms/js/jquery.maskedinput.min.js"></script>
+            <script src="assets/plugins/sky-forms/js/jquery.modal.js"></script>
 
             <!-- Assets -->
             <script src="assets/plugins/hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
             <script src="assets/plugins/page-scroller/jquery.ui.totop.min.js"></script>
+            <script src="assets/plugins/bootstrap/js/tooltip.js"></script>
+            <script src="assets/plugins/bootstrap/js/popover.js"></script>
+            <script src="assets/plugins/mixitup/jquery.mixitup.js"></script>
+            <script src="assetsplugins//mixitup/jquery.mixitup.init.js"></script>
+            <script src="assets/plugins/fancybox/jquery.fancybox.pack8cbb.js?v=2.1.5"></script>
+            <script src="assets/plugins/waypoints/waypoints.min.js"></script>
+            <script src="assets/plugins/milestone-counter/jquery.countTo.js"></script>
+            <script src="assets/plugins/easy-pie-chart/js/jquery.easypiechart.js"></script>
+            <script src="assets/plugins/social-buttons/js/rrssb.min.js"></script>
+            <script src="assets/plugins/nouislider/js/jquery.nouislider.min.js"></script>
+            <script src="assets/plugins/owl-carousel/owl.carousel.js"></script>
             <script src="assets/plugins/bootstrap/js/tooltip.js"></script>
             <script src="assets/plugins/bootstrap/js/popover.js"></script>
             <script src="assets/plugins/bootstrap-validator/validator.js"></script>
@@ -339,11 +364,6 @@
             <script src="assets/plugins/angular-country-select/angular.country-select.js"></script>
             <script src="assets/js/an.app.js"></script>
             <!--Fin Ng Scripts-->
-
-            <!-- Sripts for individual pages, depending on what plug-ins are used -->
-
-            <!-- Boomerang App JS -->
-            <script src="assets/js/wp.app.js"></script>
             <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
 <script src="js/respond.min.js"></script>
