@@ -147,7 +147,7 @@
                     document.getElementById('adresse').value='';
                     document.getElementById('telephone').value='';
                     document.getElementById('info').value='';
-                    ohSnap('Donnée enregistrée avec succès!', 'green');
+                    swal('Demande enregistrée avec succès!', 'Un de nos télé-conseillers vous contactera dans les 48h', 'success');
                     $scope.state_activation = false;
                     deferred.resolve('Ecriture réussie');
                 })
