@@ -300,10 +300,10 @@
                                                             </button>
                                                         </div>
                                                         </section>
-                                            </fieldset>
+                                                    </fieldset>
 
-                                            </form>    
-                                        </div>
+                                                </form>    
+                                            </div>
                                         <div class="form-footer">
                                             <p>Déjà inscrit? <a href="#">Cliquez ici pour vous connecter.</a></p>
                                         </div>
@@ -312,7 +312,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                    </section>
 
                 <!-- FOOTER -->
                 <thefooter></thefooter>
@@ -331,7 +331,7 @@
             <!-- Boomerang mobile nav - Optional  -->
             <script src="assets/plugins/responsive-mobile-nav/js/jquery.dlmenu.js"></script>
             <script src="assets/plugins/responsive-mobile-nav/js/jquery.dlmenu.autofill.js"></script>
-            
+
             <!-- Forms -->
             <script src="assets/plugins/ui-kit/js/jquery.powerful-placeholder.min.js"></script> 
             <script src="assets/plugins/ui-kit/js/cusel.min.js"></script>
@@ -363,7 +363,20 @@
             <!--Ng Scripts-->
             <script src="assets/plugins/angular/angular.min.js"></script>
             <script src="assets/plugins/angular-country-select/angular.country-select.js"></script>
-            <script src="assets/js/an.app.js"></script>
+            <script>
+                $(window).load(function() {
+                    $.ajax({
+                        url: 'asssets/js/an.app.php',
+                        type:'POST',
+                        cache: false,
+                        success: function(data){
+                            if(data){
+                                $('body').append(data);
+                            }
+                        }
+                    }); 
+                })
+            </script>
             <!--Fin Ng Scripts-->
             <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>

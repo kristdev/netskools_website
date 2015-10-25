@@ -55,7 +55,7 @@
 
         //Initialisation de la base données
         var netskoolsSouscriptionsDB, ddoc;
-        netskoolsSouscriptionsDB = new PouchDB('http://kristdev:Kokodi.1@kristdev.iriscouch.com/netskools_souscriptions');
+        netskoolsSouscriptionsDB = new PouchDB('http://kristdev:Kokodi.1@localhost:5984/netskools_souscriptions');
         // ====================
 
         // create a design doc
