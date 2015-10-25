@@ -1,7 +1,7 @@
 <?php
 $referer = $_SERVER['HTTP_REFERER'];
 // Check URL
-if ( $referer == 'http://netskools.com/website/' || $referer == 'http://netskools.com/website/sign-up.html' || $referer == 'http://netskools.com/website/index.html') {
+if ( 1==1) {
 ?>
 
     (function () {
