@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TestApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>Database Path</title>
+    </head>
+    <body ng-controller="ThefirstCtrl">
+        <h3>Database Path</h3>
+        {{path}}
+
+        <script src="assets/plugins/angular/angular.min.js"></script>
+
+        <script>
+            var TestApp;
+
+            TestApp = angular.module('TestApp', []);
+
+            TestApp.controller('ThefirstCtrl', ['$scope','$http','$q','$timeout', function($scope,$http,$q,$timeout){
+                $scope.findpath = function(){
+                    var deffered = $q.defer();
+                    $http
+                        .get('assets/js/an.app.php')
+                        .then(function(response){
+                        $scope.path = response.data;
+                        deffered.resolve($scope.path);
+                    }, function(response){
+                        deffered.reject('Erreur lecture');
+                    });
+                    return deffered.promise;
+                }
+                
+                $scope.findpath().then(function(){
+                    $scope.dbpath = $scope.path;
+                    alert($scope.dbpath);
+                });
+            }]);
+        </script>
+    </body>
+</html>

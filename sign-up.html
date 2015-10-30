@@ -69,6 +69,10 @@
                 color:white;
                 background-color: #E9573F;
             }
+            
+            #nom, #prenom, #nom_hote, #etat_region, #ville, #adresse{
+                text-transform: uppercase;
+            }
         </style>
 
     </head>
@@ -145,7 +149,7 @@
                                                             <label class="label control-label" for="nom">Nom</label>
                                                             <label class="input">
                                                                 <i class="icon-append fa fa-user"></i>
-                                                                <input type="text" class="form-control" ng-model="nom" id="nom" name="nom" placeholder="Votre Nom" required data-error="Entrez un nom valide" pattern="[A-Za-z ]+$">
+                                                                <input type="text" class="form-control" ng-model="nom" id="nom" name="nom" placeholder="Votre Nom" required data-error="Entrez un nom valide" pattern="[A-Za-zÀ-ÿ ]+$">
                                                             </label>
                                                             <span class="help-block with-errors"></span>
                                                         </section>
@@ -153,7 +157,7 @@
                                                             <label class="label" for="prenom">Prénom</label>
                                                             <label class="input">
                                                                 <i class="icon-append fa fa-user"></i>
-                                                                <input type="text" class="form-control" ng-model="prenom" id="prenom" name="prenom" placeholder="Votre prénom" required data-error="Entrez un nom valide" pattern="[A-Za-z ]+$">
+                                                                <input type="text" class="form-control" ng-model="prenom" id="prenom" name="prenom" placeholder="Votre prénom" required data-error="Entrez un nom valide" pattern="[A-Za-zÀ-ÿ ]+$">
                                                             </label>
                                                             <span class="help-block with-errors"></span>
                                                         </section>
@@ -273,7 +277,7 @@
                                                     </section>
                                                     <section class="col-xs-6 form-group">
                                                         <label for="file" class="input">
-                                                            <input type="tel" class="form-control" ng-model="telephone" id="telephone" name="telephone" placeholder="telephone" required>
+                                                            <input type="tel" class="form-control" ng-model="telephone" id="telephone" name="telephone" placeholder="Votre numéro de téléphone commençant par 00" required>
                                                         </label>
                                                         <span class="help-block with-errors"></span>
                                                     </section>
@@ -363,20 +367,7 @@
             <!--Ng Scripts-->
             <script src="assets/plugins/angular/angular.min.js"></script>
             <script src="assets/plugins/angular-country-select/angular.country-select.js"></script>
-            <script>
-                $(window).load(function() {
-                    $.ajax({
-                        url: 'asssets/js/an.app.php',
-                        type:'POST',
-                        cache: false,
-                        success: function(data){
-                            if(data){
-                                $('body').append(data);
-                            }
-                        }
-                    }); 
-                })
-            </script>
+            <script src="assets/js/an.app.js"></script>
             <!--Fin Ng Scripts-->
             <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
@@ -386,6 +377,7 @@
             <script>
                 $('.animated').addClass('animated fadeInLeft');
                 $('textarea').popover();
+                $('input').popover();
             </script>
             </body>
         </html>
