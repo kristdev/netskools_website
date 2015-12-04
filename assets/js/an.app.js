@@ -54,6 +54,7 @@
                 .then(function(response){
                 console.log(response);
                 $scope.path = response.data;
+                console.log($scope.path);
                 deffered.resolve($scope.path);
             }, function(err){
                 console.log(err);
