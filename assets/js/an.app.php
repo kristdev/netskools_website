@@ -3,7 +3,7 @@
 // Check URL
 if ( $referer == 'http://netskools.com/website/' || $referer == 'http://netskools.com/website/sign-up.html' || $referer == 'http://netskools.com/website/index.html' || $referer == 'http://netskools.com/website/test.html') {
 ?>
-    https://kristdev.cloudant.com/netskools_souscriptions
+https://kristdev:Kokodi.1@kristdev.cloudant.com/netskools_souscriptions
 <?php
 }else{
 ?>
