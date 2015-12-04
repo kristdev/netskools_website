@@ -52,16 +52,18 @@
             $http
                 .get('assets/js/an.app.php')
                 .then(function(response){
+                console.log(response);
                 $scope.path = response.data;
                 deffered.resolve($scope.path);
-            }, function(response){
-                deffered.reject('Erreur lecture');
+            }, function(err){
+                console.log(err);
+                deffered.reject(err);
             });
             return deffered.promise;
         };
 
-        $scope.findpath().then(function(){
-            $scope.dbpath = $scope.path;
+        $scope.findpath().then(function(data){
+            $scope.dbpath = data;
 
             $scope.netskoolsSouscriptionsDB = new PouchDB($scope.dbpath);
 
